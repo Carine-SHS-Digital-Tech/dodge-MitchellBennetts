@@ -3,17 +3,35 @@
 import pygame                               # Imports pygame and other libraries
 
 # Define Classes (sprites) here
+class FallingObject(pygame.sprite.Sprite):
+    def  __init__(self):
+        self.timecreated = pygame.time.get_ticks()
+        self.image = pygame.Surface([30, 30])
+        self.image.set_colorkey(black)
 
-pygame.init()                               # Pygame is initialised (starts running)
+        self.rect = self.image.get_rect()
 
-screen = pygame.display.set_mode([700,500]) # Set the width and height of the screen [width,height]
-pygame.display.set_caption("My Game")       # Name your window
-done = False                                # Loop until the user clicks the close button.
+
+
+pygame.init()
+# Pygame is initialised (starts running)
+
+
+import pygame
+import random
+
 clock = pygame.time.Clock()                 # Used to manage how fast the screen updates
 black    = (   0,   0,   0)                 # Define some colors using rgb values.  These can be
 white    = ( 255, 255, 255)                 # used throughout the game instead of using rgb values.
 
+screen = pygame.display.set_mode([700,500]) # Set the width and height of the screen [width,height]
+pygame.display.set_caption("Dodge")       # Name your window
+done = False
+background_image = pygame.image.load('OrchardBackground.jpg').convert()#Loop until the user clicks the close button.
+screen.blit(background_image, [ 0,0])
+
 # Define additional Functions and Procedures here
+
 
 # -------- Main Program Loop -----------
 while done == False:
